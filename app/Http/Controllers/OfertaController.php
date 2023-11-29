@@ -19,6 +19,18 @@ class OfertaController extends Controller
 
     public function actualizar(Request $request)
     {
+        $request->validate([
+            'carreras_solicitadas' => 'required',
+            'puesto' => 'required',
+            'cantidad_estudiantes' => 'required|integer|gt:0',
+            'salario' => 'required',
+            'descripcion_proyecto' => 'required',
+            'fecha_inicio' => 'required',
+            'fecha_fin' => 'required|after:fecha_inicio',
+            'fecha_max_aplicar' => 'required|before:fecha_inicio',
+        ]);
+
+
         $oferta = Oferta::find($request->id);
         $oferta->carreras_solicitadas = $request->carreras_solicitadas;
         $oferta->puesto = $request->puesto;
@@ -52,6 +64,18 @@ class OfertaController extends Controller
     //egistar una nueva oferta para que tenga el id del usuario logueado
     public function store(Request $request)
     {
+        $request->validate([
+            'carreras_solicitadas' => 'required',
+            'puesto' => 'required',
+            'cantidad_estudiantes' => 'required|integer|gt:0',
+            'salario' => 'required',
+            'descripcion_proyecto' => 'required',
+            'fecha_inicio' => 'required',
+            'fecha_fin' => 'required|after:fecha_inicio',
+            'fecha_max_aplicar' => 'required|before:fecha_inicio',
+        ]);
+
+
         $oferta = new Oferta();
         $oferta->carreras_solicitadas = $request->carreras_solicitadas;
         $oferta->puesto = $request->puesto;
@@ -64,7 +88,7 @@ class OfertaController extends Controller
         $oferta->id_empresa = auth()->user()->id;
         $oferta->save();
         //redirigir al index del controlador
-        return redirect()->route('ofertas.index');
+        return redirect()->route('ofertas.index')->with('success', 'Oferta creada con exito');
     }
 
     //Guardar la oferta creada en la base de datos
