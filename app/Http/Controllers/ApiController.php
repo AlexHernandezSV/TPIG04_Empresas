@@ -8,26 +8,33 @@ use GuzzleHttp\Exception\RequestException;
 
 class ApiController extends Controller
 {
-    public function getData()
-    {
-        $client = new Client([
-            'verify' => false, // Ignorar la verificación del certificado SSL
-        ]);
+    public function getData($ofertaId)
+{
+    $client = new Client([
+        'verify' => false,
+    ]);
 
-        try {
-            $response = $client->get('https://deploytpi-fce1a5511732.herokuapp.com/apicurriculum');
-            $data = json_decode($response->getBody(), true);
+    try {
+        // Obtener todos los datos
+        $response = $client->get('https://deploytpi-fce1a5511732.herokuapp.com/apicurriculum');
+        $data = json_decode($response->getBody(), true);
 
-            // Retorna la vista con los datos
-            return view('postulados.postulados_consulta', ['postfact' => $data]);
-        } catch (RequestException $e) {
-            if (view()->exists('error')) {
-                return view('error', ['message' => $e->getMessage()]);
-            } else {
-                return $e->getMessage(); // Si la vista 'error' no existe, muestra solo el mensaje de error en texto plano
-            }
+        // Filtrar los datos por el id de la oferta
+        $filteredData = array_filter($data, function ($item) use ($ofertaId) {
+            return $item['ofertaaplicada'] == $ofertaId;
+        });
+
+        // Retorna la vista con los datos filtrados
+        return view('postulados.postulados_consulta', ['postfact' => $filteredData]);
+    } catch (RequestException $e) {
+        if (view()->exists('error')) {
+            return view('error', ['message' => $e->getMessage()]);
+        } else {
+            return $e->getMessage();
         }
     }
+}
+
     public function revisar($id)
     {
         $client = new Client([

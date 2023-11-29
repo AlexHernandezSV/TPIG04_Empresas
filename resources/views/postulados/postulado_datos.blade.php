@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
@@ -16,7 +16,7 @@
 
                     <form disabled>
                         <div class="grid gap-6 mb-6 md:grid-cols-2">
-                            
+
                             <div>
                                 <label for="cantidad_estudiantes" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">DIRECCION</label>
                                 <x-text-input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" :value="old('direccion', $ofertas['direccion'] )" required autofocus autocomplete="direccion" disabled></x-text-input>
@@ -72,12 +72,12 @@
                         </div>
                     </form>
 
-                    <a href="/postulados">
-                    <button type="button" class="text-black bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Regresar</button>
+                    <a href="#" onclick="history.back();">
+                        <button type="button" class="text-black bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Regresar</button>
                     </a>
+
                 </div>
             </div>
         </div>
     </div>
 </x-app-layout>
-

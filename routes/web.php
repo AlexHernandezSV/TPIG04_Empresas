@@ -49,7 +49,7 @@ Route::middleware(['auth.check'])->group(function () {
 
     //Agregar las demas rutas protegidas aquí
     Route::controller(ApiController::class)->group(function(){
-        Route::get('/postulados','getData')->name('postulados.getData');
+        Route::get('/postulados/{id}','getData')->name('postulados.getData');
         Route::get('/postulados/revisar/{id}', 'revisar')->name('postulados.revisar');
     });
     

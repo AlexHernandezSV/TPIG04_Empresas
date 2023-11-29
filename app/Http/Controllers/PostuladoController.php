@@ -20,13 +20,14 @@ class PostuladoController extends Controller
     }
 
     //Obtener las ofertas con el id del usuario logueado
-    public function consulta()
-    {
-        $postulados = Postulado::where('id', auth()->user()->id)->get();
-        return View('postulados.postulados_consulta', ['postulados' => $postulados]);
-        //retonar las ofertas del usuario logueado en un json
-        //return response()->json($ofertas);
-    }
+    public function consulta($ofertaId)
+{
+    // Obtener los postulados que tienen el mismo id de oferta
+    $postulados = Postulado::where('ofertaaplicada', $ofertaId)->get();
+
+    return View('postulados.postulados_consulta', ['postulados' => $postulados]);
+}
+
 
     public function revisar($id)
     {
