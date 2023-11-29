@@ -58,7 +58,7 @@
                                 <x-text-input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" :value="old('telefono', $ofertas['telefono'] )" required autofocus autocomplete="telefono" disabled></x-text-input>
                             </div>
                             <div>
-                                <label for="descripcion_proyecto" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">PAIS DE REDISENCIA</label>
+                                <label for="descripcion_proyecto" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">PAIS DE RESIDENCIA</label>
                                 <x-text-input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" :value="old('paisResidencia', $ofertas['paisResidencia'] )" required autofocus autocomplete="paisResidencia" disabled></x-text-input>
                             </div>
                             <div>
