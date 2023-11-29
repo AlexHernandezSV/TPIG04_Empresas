@@ -115,4 +115,9 @@ class OfertaController extends Controller
 
         return response()->json(['oferta' => $oferta]);
     }
+
+    public function revisar(Oferta $oferta)
+    {
+        return View('ofertas.ofertas_ver', ['oferta' => $oferta]);
+    }
 }

@@ -35,7 +35,7 @@
                                     <td class="text-center p-1">${{ $oferta->salario }}</td>
                                     <td class="text-center p-1">{{ $oferta->fecha_max_aplicar }}</td>
                                     <td class="text-center p-1">
-                                        <div class="grid grid-cols-3">
+                                        <div class="grid grid-cols-4">
                                             <a href="{{ route('ofertas.editar', $oferta->id) }}">
                                                 <button type="button" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Editar</button>
                                             </a>
@@ -44,6 +44,10 @@
                                                 @method('DELETE')
                                                 <button type="submit" class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" onclick="confirmarEliminar()" id="btnEliminar">Eliminar</button>
                                             </form>
+
+                                            <a href="{{ route('ofertas.revisar', $oferta['id']) }}">
+                                                <button type="button" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Revisar</button>
+                                            </a>
 
                                             <a href="{{ route('postulados.getData', $oferta->id) }}">
                                                 <button type="button" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Postulados</button>
